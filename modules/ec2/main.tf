@@ -144,6 +144,6 @@ resource "aws_instance" "vm-server" {
   }
   
   tags = {
-    Name = "ec2 ${var.vpc_name}"
+    Name = "EC2 of ${var.vpc_name}"
   }
 }
