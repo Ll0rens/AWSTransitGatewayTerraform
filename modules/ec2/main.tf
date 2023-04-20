@@ -1,3 +1,7 @@
+data "http" "myip" {
+  url = "http://ipv4.icanhazip.com"
+}
+
 resource "aws_vpc" "main" {
  cidr_block = var.cidr_block
   tags = {
@@ -91,7 +95,7 @@ resource "aws_security_group" "aws-vm-sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["${chomp(data.http.myip.response_body)}/32"]
     description = "Allow incoming SSH connections"
   }
 

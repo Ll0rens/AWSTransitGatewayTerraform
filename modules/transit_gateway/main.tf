@@ -1,4 +1,4 @@
-#Create TGW
+#Create Transit Gateway
 
 resource "aws_ec2_transit_gateway" "demo_tgw" {
   description = "demo_tgw"
